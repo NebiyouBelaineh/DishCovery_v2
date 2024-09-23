@@ -15,15 +15,19 @@ export default async function RecipesPage() {
     }))
   )
 
+  /* console.log('recipesByCategory', recipesByCategory);
+  console.log('recipesByCategory[0].recipes[0]', recipesByCategory[0].recipes);
+   */
+
   return (
-    <div className="min-h-screen mt-10 text-dark dark:text-white mt-[150px] px-2 lg:px-1">
+    <div className="min-h-screen mt-10 text-dark dark:text-white mt-[150px] px-2 md:px-4">
       <div className="relative h-[400px] flex items-center justify-center">
         <Image
           src="/images/sample-img.jpg"
           alt="Various food items"
           width={1280}
           height={400}
-          className="brightness-50 h-[400px] w-[800px] rounded-lg lg:rounded-full object-cover"
+          className="brightness-50 h-[400px] w-[800px] rounded-3xl object-cover"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
           <h1 className="text-4xl text-white md:text-5xl font-bold mb-4 text-center">Your desired dish?</h1>
@@ -52,8 +56,10 @@ export default async function RecipesPage() {
               <Utensils className="mr-2" />
               {category}
             </h2>
-            <div className="">
-              <Component recipes={recipes}/>
+            <div className="flex justify-center">
+              {/* {recipes.map((recipe, index) => ( */}
+              <Component recipes={recipes} />
+              {/* ))} */}
             </div>
           </section>
         ))}

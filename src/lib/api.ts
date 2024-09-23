@@ -10,7 +10,7 @@ app_id=${EDAMAM_APP_ID}&app_key=${EDAMAM_APP_KEY}`
 
 export async function searchRecipes(query: string): Promise<Recipe[]> {
   try {
-    const response = await fetch(`${API_URL}/search?q=${encodeURIComponent(query)}`)
+    const response = await fetch(`${API_URL}q=${encodeURIComponent(query)}`)
     if (!response.ok) {
       throw new Error('Failed to fetch recipes')
     }
@@ -25,11 +25,7 @@ export async function getRecipesByCategory(category: string): Promise<Recipe[]> 
   const url = `${API_URL}&mealType=${encodeURIComponent(category)}`;
 
   try {
-    const response = await fetch(url, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+    const response = await fetch(url);
 
     return response.json()
       .then(data => data.hits)

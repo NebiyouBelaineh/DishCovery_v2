@@ -1,15 +1,14 @@
 'use client'
-
-import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import { searchRecipes } from '@/lib/api'
 
 export default function SearchForm({ className }: { className: string }) {
   const [query, setQuery] = useState('')
-  const router = useRouter()
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    router.push(`/recipes?query=${encodeURIComponent(query)}`)
+    // TODO: handle search
+    searchRecipes(query)
   }
 
   return (

@@ -1,9 +1,7 @@
-import Link from 'next/link'
-import GetStartedButton from './components/GetStartedBtn'
-import { BackgroundLights } from './components/BackgroundLights'
+import { Hero } from './components/Hero'
 
 export default function Home() {
   return (
-    <BackgroundLights />
+    <Hero />
   )
 }

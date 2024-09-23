@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
-export default function SearchForm() {
+export default function SearchForm({ className }: { className: string }) {
   const [query, setQuery] = useState('')
   const router = useRouter()
 
@@ -13,7 +13,7 @@ export default function SearchForm() {
   }
 
   return (
-    <div className='flex items-center justify-start mt-12'>
+    <div className={`flex items-center justify-start mt-12 ${className}`}>
       <form onSubmit={handleSubmit} className="flex gap-2 w-1/2">
         <input
           type="text"

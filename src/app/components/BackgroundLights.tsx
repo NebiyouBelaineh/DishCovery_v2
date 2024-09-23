@@ -13,18 +13,6 @@ export const BackgroundLights = () => {
                             'w-full max-w-3xl flex flex-col sm:items-center items-start justify-center relative z-[1] animate-moveUp'
                         }
                     >
-                        {/* <div className="hidden sm: flex relative w-full">
-                            <div className="bg-gradient-to-br from-green-950/[0.8] to-blue-950/[0.7] border border-green-900 rounded-lg p-1 aspect-square overflow-hidden absolute left-0 sm:left-1/2 sm:-translate-x-1/2 -top-12">
-                                <span
-                                    className={twMerge(
-                                        'text-xl',
-                                        'text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 to-yellow-400 '
-                                    )}
-                                >
-                                    ✨
-                                </span>
-                            </div>
-                        </div> */}
                         <div className='flex flex-col justify-center'>
                             <h1
                                 className={

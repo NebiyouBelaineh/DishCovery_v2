@@ -1,11 +1,7 @@
 "use client"
 
-interface Recipe {
-  recipe: {
-    image: string;
-    label: string;
-  }
-}
+import { Recipe } from "@/lib/types"
+
 interface Props {
   recipes: Recipe[];
   index?: number
@@ -23,7 +19,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 
-export default function Component(props: Props) {
+export default function CarouselRecipe(props: Props) {
   const { recipes } = props;
   // console.log('recipes', recipes);
   // console.log('recipes title', recipes[0].recipe.label);
@@ -42,15 +38,15 @@ export default function Component(props: Props) {
   }, [emblaApi])
 
   return (
-    <Carousel className="w-full max-w-sm mx-auto">
+    <Carousel className="w-full mx-auto">
       <CarouselContent ref={emblaRef}>
         {recipes.map((recipe: Recipe, index: number) => (
           <CarouselItem key={index} className="basis-1/3 md:basis-1/4 lg:basis-1/5">
             <div className="p-1">
               <Card className="w-[300px] h-[300px]">
-                <CardContent className="flex items-center justify-center p-6">
+                <CardContent className="flex items-center justify-center p-2 lg:p-4">
                   <div className="relative w-[300px] h-[300px]">
-                    <Image src={recipe.recipe.image} alt={recipe.recipe.label} layout="fill" objectFit="cover" />
+                    <Image src={recipe.recipe.image} alt={recipe.recipe.label} width={300} height={300}/>
                   </div>
                 </CardContent>
               </Card>

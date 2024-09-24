@@ -12,7 +12,7 @@ export default function Header({ className }: { className?: string }) {
   return (
     pathname !== '/' ? (
       <div
-        className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}
+        className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50 shadow-lg rounded-full", className)}
       >
         <Menu setActive={setActive}>
           <Link href="/">

@@ -1,17 +1,16 @@
 import Image from 'next/image'
 import { Utensils } from 'lucide-react'
 import SearchForm from '../components/SearchForm'
-import RecipeCard from '../components/RecipeCard'
 import { getRecipesByCategory } from '@/lib/api'
-import Component from '../components/CarouselRecipe'
+import CarouselRecipe from '../components/CarouselRecipe'
 
-const categories = ['Breakfast', 'Lunch', 'Dinner', 'Snack', 'Teatime']
+const categories = ['Breakfast', 'Lunch / Dinner', 'Snack', 'Teatime']
 
 export default async function RecipesPage() {
   const recipesByCategory = await Promise.all(
     categories.map(async (category) => ({
       category,
-      recipes: await getRecipesByCategory(category),
+      recipes: await getRecipesByCategory(category === 'Lunch / Dinner' ? 'Lunch' : category),
     }))
   )
 
@@ -21,13 +20,13 @@ export default async function RecipesPage() {
 
   return (
     <div className="min-h-screen mt-10 text-dark dark:text-white mt-[150px] px-2 md:px-4">
-      <div className="relative h-[400px] flex items-center justify-center">
+      <div className="relative h-[400px] w-[auto] flex items-center justify-center">
         <Image
           src="/images/sample-img.jpg"
           alt="Various food items"
           width={1280}
           height={400}
-          className="brightness-50 h-[400px] w-[800px] rounded-3xl object-cover"
+          className="brightness-50 h-[400px] w-[1000px] rounded-3xl object-cover"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
           <h1 className="text-4xl text-white md:text-5xl font-bold mb-4 text-center">Your desired dish?</h1>
@@ -58,7 +57,7 @@ export default async function RecipesPage() {
             </h2>
             <div className="flex justify-center">
               {/* {recipes.map((recipe, index) => ( */}
-              <Component recipes={recipes} />
+              <CarouselRecipe recipes={recipes} />
               {/* ))} */}
             </div>
           </section>

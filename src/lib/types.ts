@@ -5,11 +5,8 @@ export interface Hit {
   }
 }
 export interface Recipe {
-    id: string
-    label: string
-    description: string
-    image: string
-    hits: Hit[]
-    // Add more properties as needed
+  recipe: {
+    image: string;
+    label: string;
   }
-  
+}

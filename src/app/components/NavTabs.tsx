@@ -1,10 +1,10 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import SearchForm from "./SearchForm";
+import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
-import { div } from "framer-motion/client";
 
 interface TabProps {
   text: string;
@@ -14,6 +14,14 @@ interface TabProps {
 
 export default function NavTabs({ tabs }: { tabs: string[] }) {
   const [selected, setSelected] = useState<string>(tabs[0]);
+  const path = usePathname()
+
+  useEffect(() => {
+    if (path) {
+      const capitalizedPath = path.charAt(1).toUpperCase() + path.slice(2);
+      setSelected(capitalizedPath);
+    }
+  }, [path]);
 
   return (
     <div className="flex items-center justify-start md:justify-center lg:justify-between gap-4 rounded-md bg-opacity-50 backdrop-blur-lg border-b border-black dark:border-gray-300 p-6 text-black dark:text-white">

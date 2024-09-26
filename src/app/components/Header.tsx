@@ -15,7 +15,7 @@ export default function Header({ className }: { className?: string }) {
       <div
         className={cn("fixed inset-x-0 z-50 shadow-lg rounded-full", className)}
       >
-        <NavTabs tabs={['Recipes', 'Ingredients', 'Cooking']} />
+        <NavTabs tabs={['Recipes', 'About']} />
       </div>
     ) : null)
 }

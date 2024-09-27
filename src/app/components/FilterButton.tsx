@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import SearchByingredients  from './searchByIngredients '
+import SearchByingredients  from './SearchByIngredients '
 
 export default function FilterButton() {
   const [isModalOpen, setIsModalOpen] = useState(false)

@@ -47,7 +47,7 @@ interface RecipeFilterModalProps {
   }) => void
 }
 
-export default function RecipeFilterModal({ isOpen, onClose, onSubmit }: RecipeFilterModalProps) {
+export default function SearchByIngredients({ isOpen, onClose, onSubmit }: RecipeFilterModalProps) {
   const [ingredients, setIngredients] = useState<string[]>([])
   const [newIngredient, setNewIngredient] = useState('')
   const [cuisineType, setCuisineType] = useState('any')
@@ -74,9 +74,14 @@ export default function RecipeFilterModal({ isOpen, onClose, onSubmit }: RecipeF
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-md flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-lg shadow-xl w-full max-w-md">
-        <div className="p-6 ">
+    <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+      <div className="rounded-lg shadow-xl w-full max-w-md bg-white dark:bg-black border border-stone-50 dark:border-stone-700 shadow-stone-400 dark:shadow-gray-700">
+        <div className='flex justify-end'>
+          <button onClick={onClose} className="relative top-2 right-2 p-2 bg-lime-600 rounded-full hover:bg-green-600">
+            <X size={24} className="text-white" />
+          </button>
+        </div>
+        <div className="p-6">
           <h2 className="text-2xl font-bold mb-4 text-dark dark:text-white">Ingredients Selection</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">

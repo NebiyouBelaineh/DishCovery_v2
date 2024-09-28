@@ -79,9 +79,9 @@ export default async function RecipesPage() {
           </ul>
         </nav>
 
-        {recipesByCategory.map(({ category, recipes }) => (
-          <section key={category} id={category.toLowerCase()} className="mb-12">
-            <h2 className="text-2xl font-semibold mb-4 flex items-center">
+        {recipesByCategory.map(({ category, recipes }: { category: string, recipes: any[] }) => (
+          <section key={category} className="mb-12">
+            <h2 id={category.toLowerCase()} className="text-2xl font-semibold mb-4 flex items-center">
               <Utensils className="mr-2" />
               {category}
             </h2>

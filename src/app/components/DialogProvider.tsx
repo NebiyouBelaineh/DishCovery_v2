@@ -20,6 +20,7 @@ import { createPortal } from 'react-dom';
 import { cn } from '@/lib/utils';
 import useClickOutside from './useClickOutside';
 import { XIcon } from 'lucide-react';
+import { div } from 'framer-motion/client';
 
 interface DialogContextType {
   isOpen: boolean;
@@ -361,19 +362,19 @@ function DialogClose({ children, className, variants }: DialogCloseProps) {
   }, [setIsOpen]);
 
   return (
-    <motion.button
-      onClick={handleClose}
-      type='button'
-      aria-label='Close dialog'
-      key={`dialog-close-${uniqueId}`}
-      className={cn('absolute right-6 top-6', className)}
-      initial='initial'
-      animate='animate'
-      exit='exit'
-      variants={variants}
-    >
-      {children || <XIcon size={24} />}
-    </motion.button>
+      <motion.button
+        onClick={handleClose}
+        type='button'
+        aria-label='Close dialog'
+        key={`dialog-close-${uniqueId}`}
+        className={cn('absolute right-6 top-6 white bg-lime-600 rounded-full p-2', className)}
+        initial='initial'
+        animate='animate'
+        exit='exit'
+        variants={variants}
+      >
+        {children || <XIcon className='text-white dark:text-black hover:text-black dark:hover:text-white' size={24} />}
+      </motion.button>
   );
 }
 

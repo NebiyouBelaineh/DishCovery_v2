@@ -5,6 +5,7 @@ import { Recipe } from "@/lib/types"
 interface Props {
   recipes: Recipe[];
   index?: number
+  category: string;
 }
 
 import * as React from "react"
@@ -21,7 +22,7 @@ import {
 } from "@/components/ui/carousel"
 
 export default function CarouselRecipe(props: Props) {
-  const { recipes } = props;
+  const { recipes, category } = props;
   // console.log('recipes', recipes);
   // console.log('recipes title', recipes[0].recipe.label);
 
@@ -49,7 +50,7 @@ export default function CarouselRecipe(props: Props) {
                     {/* <Image src={recipe.recipe.image} alt={recipe.recipe.label} width={300} height={300}/> */}
                     {/* <Image src="/images/sample-img.jpg" alt="sample" width={300} height={300}
                       className="w-full h-full object-cover rounded-lg md:rounded-xl" /> */}
-                    <RecipeDialog recipe={recipe} />
+                    <RecipeDialog recipe={recipe} category={category} />
                 </CardContent>
               </Card>
             </div>

@@ -5,6 +5,10 @@ import FilterButton from '../components/FilterButton'
 import { getRecipesByCategory } from '@/lib/api'
 import CarouselRecipe from '../components/CarouselRecipe'
 
+let cachedData: any = null;
+let cachedTimeStamp = 0;
+const cachedDuration = 1000 * 60 * 60 * 24; // 1 day
+
 const categories = ['Breakfast', 'Lunch / Dinner', 'Snack', 'Teatime']
 
 function generateRandomRecipe(id: number) {
@@ -25,17 +29,23 @@ function generateRandomRecipe(id: number) {
 }
 
 export default async function RecipesPage() {
-  const recipesByCategory = await Promise.all(
-    categories.map(async (category) => ({
-      category,
-      // recipes: await getRecipesByCategory(category === 'Lunch / Dinner' ? 'Lunch' : category),
-      recipes: Array.from({ length: 20 }, (_, i) => generateRandomRecipe(i + 1)),
-      }))
-  );
+  // Caching the data for 1 day before fetching from the API
+  const currentTime = Date.now();
+  let recipesByCategory: any;
 
-  /* console.log('recipesByCategory', recipesByCategory);
-  console.log('recipesByCategory[0].recipes[0]', recipesByCategory[0].recipes);
-   */
+  if (cachedData && currentTime - cachedTimeStamp < cachedDuration) {
+    recipesByCategory = cachedData;
+    cachedData = recipesByCategory;
+    cachedTimeStamp = currentTime;
+  } else {
+    recipesByCategory = await Promise.all(
+      categories.map(async (category) => ({
+        category,
+        recipes: await getRecipesByCategory(category === 'Lunch / Dinner' ? 'Lunch' : category),
+        // recipes: Array.from({ length: 20 }, (_, i) => generateRandomRecipe(i + 1)),
+      }))
+    );
+  }
 
   return (
     <div className="min-h-screen mt-10 text-dark dark:text-white mt-[150px] px-2 md:px-4">
@@ -77,7 +87,7 @@ export default async function RecipesPage() {
             </h2>
             <div className="flex justify-center">
               {/* {recipes.map((recipe, index) => ( */}
-              <CarouselRecipe recipes={recipes} />
+              <CarouselRecipe recipes={recipes} category={category} />
               {/* ))} */}
             </div>
           </section>

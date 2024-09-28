@@ -8,5 +8,7 @@ export interface Recipe {
   recipe: {
     image: string;
     label: string;
+    category: string;
+    ingredientLines: string[];
   }
 }

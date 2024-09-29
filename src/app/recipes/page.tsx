@@ -9,7 +9,7 @@ let cachedData: any = null;
 let cachedTimeStamp = 0;
 const cachedDuration = 1000 * 60 * 60 * 24; // 1 day
 
-const categories = ['Breakfast', 'Lunch / Dinner', 'Snack', 'Teatime']
+const categories = ['Breakfast', 'Lunch', 'Dinner', 'Snack', 'Teatime']
 
 function generateRandomRecipe(id: number) {
   const adjectives = ['Delicious', 'Savory', 'Sweet', 'Spicy', 'Creamy', 'Crunchy', 'Tangy', 'Zesty']
@@ -41,7 +41,7 @@ export default async function RecipesPage() {
     recipesByCategory = await Promise.all(
       categories.map(async (category) => ({
         category,
-        recipes: await getRecipesByCategory(category === 'Lunch / Dinner' ? 'Lunch' : category),
+        recipes: await getRecipesByCategory(category),
         // recipes: Array.from({ length: 20 }, (_, i) => generateRandomRecipe(i + 1)),
       }))
     );
@@ -49,16 +49,16 @@ export default async function RecipesPage() {
 
   return (
     <div className="min-h-screen mt-10 text-dark dark:text-white mt-[150px] px-2 md:px-4">
-      <div className="relative h-[400px] w-[auto] flex items-center justify-center">
+      <div className="relative h-[400px] w-[80%] mx-auto flex items-center justify-center bg-lime-900 rounded-3xl lg:rounded-full md:w-[70%]">
         <Image
-          src="/images/sample-img.jpg"
+          src="/images/undraw_cooking_p7m1.svg"
           alt="Various food items"
           width={1280}
           height={400}
-          className="brightness-50 h-[400px] w-[1000px] rounded-3xl object-cover"
+          className="h-[95%] w-auto"
         />
-        <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
-          <h1 className="text-4xl text-white md:text-5xl font-bold mb-4 text-center">Your desired dish?</h1>
+        <div className="absolute inset-0 flex flex-col items-center justify-end p-4 rounded-full">
+          <h1 className="text-4xl z-10 text-lime-400 md:text-5xl font-bold my-4 text-center bg-stone-800 bg-opacity-80 rounded-full">Your desired dish?</h1>
           <SearchForm className="w-full max-w-2xl mb-4" />
           <FilterButton />
           <p className="mt-4 text-lg text-white">Search any recipe e.g. burger, pizza, sandwich, toast.</p>

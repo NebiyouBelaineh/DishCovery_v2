@@ -58,7 +58,11 @@ export default async function RecipesPage() {
           className="h-[95%] w-auto"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-end p-4 rounded-full">
-          <h1 className="text-4xl z-10 text-lime-400 md:text-5xl font-bold my-4 text-center bg-stone-800 bg-opacity-80 rounded-full">Your desired dish?</h1>
+          <h1 className="text-4xl z-10 md:text-5xl font-bold my-4 text-center bg-stone-800 bg-opacity-80 rounded-full px-4 py-2">
+            <span className="bg-gradient-to-r from-green-400 to-violet-300 text-transparent bg-clip-text">
+              Your Next Meal?
+            </span>
+          </h1>
           <SearchForm className="w-full max-w-2xl mb-4" />
           <FilterButton />
           <p className="mt-4 text-lg text-white">Search any recipe e.g. burger, pizza, sandwich, toast.</p>

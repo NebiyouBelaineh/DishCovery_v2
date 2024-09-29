@@ -24,8 +24,8 @@ export default function NavTabs({ tabs }: { tabs: string[] }) {
   }, [path]);
 
   return (
-    <div className="flex items-center font-bold justify-center rounded-md bg-opacity-50 backdrop-blur-lg border-b-2 border-black dark:border-gray-300 p-6 text-dark dark:text-white">
-      <div className="flex flex-wrap items-center gap-2 bg-lime-200 dark:bg-lime-950 rounded-full py-4 md:gap-6">
+    <div className="flex items-center justify-center rounded-md bg-opacity-50 backdrop-blur-lg border-b-2 border-black dark:border-gray-300 p-6 text-dark dark:text-white">
+      <div className="flex flex-wrap items-center gap-2 shadow-sm shadow-stone-300 dark:shadow-stone-600 bg-lime-200 dark:bg-lime-950 rounded-full py-4 md:gap-6">
         <Link href={'/'} className={cn(
           "relative rounded-md p-2 text-sm md:text-md lg:text-lg transition-all text-dark dark:text-white hover:font-black",
         )}>DishCovery</Link>

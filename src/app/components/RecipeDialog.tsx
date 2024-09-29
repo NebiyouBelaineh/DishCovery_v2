@@ -32,21 +32,21 @@ export function RecipeDialog({ recipe, category }: { recipe: Recipe, category: s
           alt={recipe.recipe.label}
           className='h-48 w-full object-cover'
         />
-        <div className='flex flex-grow flex-row items-end justify-between p-2'>
+        <div className='flex flex-grow flex-row items-start justify-between p-2 h-[100px]'>
           <div>
-            <DialogTitle className='text-zinc-950 dark:text-zinc-50'>
+            <DialogTitle className='text-zinc-950 dark:text-zinc-50 font-semibold text-lg text-center'>
               {recipe.recipe.label}
             </DialogTitle>
-            <DialogSubtitle className='text-zinc-700 dark:text-zinc-400'>
+            {/* <DialogSubtitle className='text-zinc-700 dark:text-zinc-400'>
               {recipe.recipe.category}
-            </DialogSubtitle>
+            </DialogSubtitle> */}
           </div>
           <button
             type='button'
             className='relative ml-1 flex h-6 w-6 shrink-0 scale-100 select-none appearance-none items-center justify-center rounded-lg border border-zinc-950/10 text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-800 focus-visible:ring-2 active:scale-[0.98] dark:border-zinc-50/10 dark:bg-zinc-900 dark:text-zinc-500 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:focus-visible:ring-zinc-500'
             aria-label='Open dialog'
           >
-            <SquareArrowOutUpRight size={12} />
+            <SquareArrowOutUpRight size={14} />
           </button>
         </div>
       </DialogTrigger>
@@ -55,7 +55,7 @@ export function RecipeDialog({ recipe, category }: { recipe: Recipe, category: s
           style={{
             borderRadius: '24px',
           }}
-          className='pointer-events-auto relative flex h-auto w-[70%] flex-col justify-center overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900 sm:w-[350px]'
+          className='pointer-events-auto relative flex h-auto w-[70%] flex-col justify-center overflow-hidden border-2 border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900 sm:w-[350px]'
         >
           <DialogImage
             src={recipe.recipe.image}

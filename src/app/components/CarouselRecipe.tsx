@@ -10,7 +10,6 @@ interface Props {
 
 import * as React from "react"
 import useEmblaCarousel from "embla-carousel-react"
-import Image from "next/image"
 import { RecipeDialog } from "./RecipeDialog"
 import { Card, CardContent } from "@/components/ui/card"
 import {

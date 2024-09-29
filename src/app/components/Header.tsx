@@ -13,7 +13,7 @@ export default function Header({ className }: { className?: string }) {
   return (
     pathname !== '/' ? (
       <div
-        className={cn("fixed inset-x-0 z-50 shadow-lg rounded-full", className)}
+        className={cn("fixed inset-x-0 z-50 shadow-lg", className)}
       >
         <NavTabs tabs={['Recipes', 'About']} />
       </div>

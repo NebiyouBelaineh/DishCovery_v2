@@ -22,7 +22,14 @@ export async function searchRecipes(query: string): Promise<Recipe[]> {
 }
 
 export async function getRecipesByCategory(category: string): Promise<Recipe[]> {
-  const url = `${API_URL}&mealType=${encodeURIComponent(category)}`;
+  let url: string;
+  if (category === 'Lunch') {
+    url = `${API_URL}&q=${encodeURIComponent(category)}`;
+  } else if (category === 'Dinner') {
+    url = `${API_URL}&mealType=${encodeURIComponent(category)}&dishType=${encodeURIComponent('Main course')}`;
+  } else {
+    url = `${API_URL}&mealType=${encodeURIComponent(category)}`;
+  }
 
   try {
     const response = await fetch(url);

@@ -24,8 +24,8 @@ export default function NavTabs({ tabs }: { tabs: string[] }) {
   }, [path]);
 
   return (
-    <div className="flex items-center justify-start md:justify-center lg:justify-between gap-4 rounded-md bg-opacity-50 backdrop-blur-lg border-b border-black dark:border-gray-300 p-6 text-dark dark:text-white">
-      <div className="flex flex-wrap items-center gap-4">
+    <div className="flex items-center font-bold justify-center rounded-md bg-opacity-50 backdrop-blur-lg border-b-2 border-black dark:border-gray-300 p-6 text-dark dark:text-white">
+      <div className="flex flex-wrap items-center gap-4 bg-lime-200 dark:bg-lime-950 rounded-full py-4 md:gap-6">
         <Link href={'/'} className={cn(
           "relative rounded-md p-2 text-sm md:text-md lg:text-lg transition-all text-dark dark:text-white hover:font-black",
         )}>DishCovery</Link>
@@ -52,7 +52,7 @@ const Tab = ({ text, selected, setSelected }: TabProps) => {
         <motion.span
           layoutId="tabs"
           transition={{ type: "spring", duration: 0.5 }}
-          className="absolute inset-0 rounded-sm bg-lime-600"
+          className="absolute inset-0 rounded-full bg-lime-600"
         />
       )}
     </Link>

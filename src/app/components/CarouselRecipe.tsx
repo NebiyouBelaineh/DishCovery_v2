@@ -39,10 +39,10 @@ export default function CarouselRecipe(props: Props) {
   }, [emblaApi])
 
   return (
-    <Carousel className="w-[80%] mx-auto border border-gray-200 dark:border-gray-600 rounded-xl">
+    <Carousel className="w-[80%] mx-auto border-2 border-stone-300 dark:border-stone-600 rounded-xl">
       <CarouselContent ref={emblaRef}>
         {recipes.map((recipe: Recipe, index: number) => (
-          <CarouselItem key={index} className="basis-1/2 sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
+          <CarouselItem key={index} className="basis-1/1 sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
             <div className="">
               <Card className="w-full h-full">
                 <CardContent className="flex items-center justify-center p-2 lg:p-4">

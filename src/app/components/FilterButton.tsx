@@ -29,9 +29,9 @@ export default function FilterButton() {
     <>
       <button
         onClick={handleOpenModal}
-        className="bg-lime-600  text-white px-4 py-2 rounded-full hover:bg-green-700 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+        className="bg-violet-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900"
       >
-        Find by ingredients 
+        Search by ingredients 
       </button>
       <SearchByingredients 
         isOpen={isModalOpen}

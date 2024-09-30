@@ -2,9 +2,10 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { twMerge } from "tailwind-merge";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { Moon, Sun } from 'lucide-react'
+import { useTheme } from 'next-themes';
 
 interface TabProps {
   text: string;
@@ -14,7 +15,15 @@ interface TabProps {
 
 export default function NavTabs({ tabs }: { tabs: string[] }) {
   const [selected, setSelected] = useState<string>(tabs[0]);
+  const [mounted, setMounted] = useState(false);
   const path = usePathname()
+  const { theme, setTheme } = useTheme()
+
+
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (path) {
@@ -28,10 +37,25 @@ export default function NavTabs({ tabs }: { tabs: string[] }) {
       <div className="flex flex-wrap items-center gap-2 shadow-sm shadow-stone-300 dark:shadow-stone-600 bg-lime-200 dark:bg-lime-950 rounded-full py-4 md:gap-6">
         <Link href={'/'} className={cn(
           "relative rounded-md p-2 text-sm md:text-md lg:text-lg transition-all text-dark dark:text-white hover:font-black",
-        )}>DishCovery</Link>
+        )}>DishCovery
+        </Link>
         {tabs.map((tab) => (
           <Tab text={tab} selected={selected === tab} setSelected={setSelected} key={tab} />
         ))}
+        <button
+          aria-label="Toggle Dark Mode"
+          type="button"
+          className="p-2 rounded-md hover:bg-lime-700 dark:hover:bg-lime-600 transition-colors hover:scale-110 hover:text-white dark:hover:text-dark"
+          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        >
+          {mounted && (
+            theme === 'dark' ? (
+              <Sun className="h-5 w-5" />
+            ) : (
+              <Moon className="h-5 w-5" />
+            )
+          )}
+        </button>
       </div>
     </div>
   );

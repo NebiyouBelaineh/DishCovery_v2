@@ -49,7 +49,7 @@ export default async function RecipesPage() {
 
   return (
     <div className="min-h-screen mt-10 text-dark dark:text-white mt-[150px] px-2 md:px-4">
-      <div className="relative h-[400px] w-[80%] mx-auto flex items-center justify-center bg-lime-900 rounded-3xl lg:rounded-full md:w-[70%]">
+      <div className="relative h-[400px] w-[80%] mx-auto flex items-center justify-center bg-lime-900 rounded-3xl md:w-[70%]">
         <Image
           src="/images/undraw_cooking_p7m1.svg"
           alt="Various food items"
@@ -75,7 +75,7 @@ export default async function RecipesPage() {
             {categories.map((category) => (
               <li key={category}>
                 <a href={`#${category.toLowerCase()}`}
-                  className="text-dark dark:text-white hover:bg-black hover:bg-opacity-10 rounded-md p-2 transition-colors underline">
+                  className="text-dark dark:text-white hover:bg-black hover:bg-opacity-10 dark:hover:bg-white dark:hover:bg-opacity-50 rounded-md p-2 transition-colors underline">
                   {category}
                 </a>
               </li>

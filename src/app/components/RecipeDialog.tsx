@@ -78,8 +78,8 @@ export function RecipeDialog({ recipe, category }: { recipe: Recipe, category: s
               }}
             >
               {recipe.recipe.ingredientLines.map((ingredient: string, index: number) => (
-                <p className='mt-2 text-zinc-500 dark:text-zinc-500'>
-                  <span key={index}>{ingredient}</span>
+                <p key={index} className='text-zinc-700 dark:text-zinc-400'>
+                  <span>{ingredient}</span>
                 </p>
               ))}
             </DialogDescription>

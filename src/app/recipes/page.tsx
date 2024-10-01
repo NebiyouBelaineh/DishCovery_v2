@@ -11,6 +11,7 @@ const cachedDuration = 1000 * 60 * 60 * 24; // 1 day
 
 const categories = ['Breakfast', 'Lunch', 'Dinner', 'Snack', 'Teatime']
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function generateRandomRecipe(id: number) {
   const adjectives = ['Delicious', 'Savory', 'Sweet', 'Spicy', 'Creamy', 'Crunchy', 'Tangy', 'Zesty']
   const foods = ['Pasta', 'Salad', 'Soup', 'Sandwich', 'Stir-fry', 'Curry', 'Casserole', 'Pie']

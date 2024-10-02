@@ -6,9 +6,9 @@ export default function About() {
         <p className="text-lg mb-4 text-dark dark:text-white">Recipe Finder is your go-to application for discovering delicious recipes from around the world. Whether you're a seasoned chef or a cooking novice, our platform offers a wide variety of recipes to suit every taste and skill level.</p>
         <p className="text-lg mb-4 text-dark dark:text-white">Our mission is to inspire culinary creativity and make cooking an enjoyable experience for everyone. With our extensive database of recipes, user-friendly interface, and personalized recommendations, you'll always find something exciting to cook.</p>
       </div>
-      <div className="bg-green-100 border-l-4 border-green-500 p-4 mt-8">
-        <h2 className="text-xl font-semibold mb-2 text-green-800">Key Features:</h2>
-        <ul className="list-disc list-inside text-gray-700">
+      <div className="border-l-4 border-green-500 p-4 mt-8">
+        <h2 className="text-xl font-semibold mb-2 text-lime-600">Key Features:</h2>
+        <ul className="list-disc list-inside text-black dark:text-white">
           <li>Extensive recipe database</li>
           <li>Personalized recommendations</li>
           <li>Easy-to-use search functionality</li>

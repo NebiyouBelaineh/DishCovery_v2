@@ -74,7 +74,7 @@ export default function SearchByIngredients({ isOpen, onClose, onSubmit }: Recip
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+    <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center p-4 z-40">
       <div className="rounded-lg shadow-xl w-full max-w-md bg-white dark:bg-black border border-stone-50 dark:border-stone-700 shadow-stone-400 dark:shadow-gray-700">
         <div className='flex justify-end'>
           <button onClick={onClose} className="relative top-2 right-2 p-2 bg-lime-600 rounded-full hover:bg-green-600">
